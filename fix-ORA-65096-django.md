@@ -270,7 +270,7 @@ DATABASES = {
 }
 ```
 
-If you meet this error, follow my guild here
+If you meet this error, follow my guide here
 [django.db.utils.DatabaseError: ORA-12505: TNS:listener does not currently know of SID given in connect descriptor](#settings)
 
 *  Apply the migrations for app (again because we have connected to a new database)
