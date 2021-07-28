@@ -255,6 +255,7 @@ Grant succeeded.
 * Create/Edit Database connection with that user
 
 ![databse-connection](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/p9gnrcjs3e4jti9rf76v.png)
+
 _Remember to change service name to the container we have used above **If you're using Oracle 12, container will be ORCLPDB**, hit the connect button_
 * Open file yoursite/yoursite/settings.py
 
@@ -268,14 +269,18 @@ DATABASES = {
     }
 }
 ```
+
 If you meet this error, follow my guild here
 [django.db.utils.DatabaseError: ORA-12505: TNS:listener does not currently know of SID given in connect descriptor](#settings)
 
 *  Apply the migrations for app (again because we have connected to a new database)
+
 ```powershell
 python manage.py migrate
 ```
+
 * Run test
+
 ```powershell
 PS D:\Workplace\Backend\mysite> python manage.py test polls
 Creating test database for alias 'default'...
@@ -290,13 +295,14 @@ Traceback (most recent call last):
     self.assertIs(future_question.was_published_recently(), False)
 AssertionError: True is not False
 
-  ----------------------------------------------------------------------
+----------------------------------------------------------------------
 Ran 1 test in 0.006s
 FAILED (failures=1)
 Destroying test database for alias 'default'...
 Destroying test user...
 Destroying test database tables...
 ```
+
 * Succeed, thanks for reading
 
 <h2 id='References'>References</h2>
