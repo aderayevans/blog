@@ -283,7 +283,8 @@ Destroying test database tables...
 
 <h2 id='References'>References</h2>
 
-[Tutorial link] (https://docs.djangoproject.com/en/3.2/intro/tutorial05/)
+[Tutorial link](https://docs.djangoproject.com/en/3.2/intro/tutorial05/)
+
 Blogs and stackoverflow-s that helped me through this error:
 * <https://stackoverflow.com/questions/33330968/error-ora-65096-invalid-common-user-or-role-name-in-oracle>
 * <https://logicalread.com/oracle-pluggable-databases-mc05/#.YQES444za3A>
