@@ -63,6 +63,7 @@ Why?
 I am logging in as an administrator user with full privileges
 
 And so, I do some researches and find out that
+
 ```powershell
 SQL> show con_name
 
@@ -70,17 +71,20 @@ CON_NAME
 ------------------------------
 CDB$ROOT
 ```
+
 We are in the container 'CDB$ROOT', which is the keeper of all the PDBs that are part of the collection
 PDB is a Pluggable database
 All PDBs are plugged in CDB$ROOT, this structure is called a container database (CDB)
 [learn more](https://logicalread.com/oracle-pluggable-databases-mc05/#.YQEj_44za3B)
 
 Aside with those kind of headache, all we need to know is 
+
 ```word
 99.9% of the time the error ORA-65096: invalid common user or role name means you are logged into the CDB when you should be logged into a PDB.
 ```
 
 * So we need an user have con_name is PDB to create user on that PDB
+
 ```powershell
 SQL> show pdbs;
 
@@ -112,7 +116,9 @@ DATABASES = {
     }
 }
 ```
+
 Try to login to sqlplus with the user we have just created
+
 ```powershell
 PS D:\Workplace\Backend\mysite> sqlplus django/django
 
@@ -128,12 +134,14 @@ ORA-01017: invalid username/password; logon denied
 Hmm, why???
 
 I have tried to create an user with that same username, it says
+
 ```powershell
 ORA-01920: user name 'DJANGO' conflicts with another user or role name
 ```
+
 Why ????????
 
-Do some research
+Do some more research\
 Found out we cannot use users at Pluggable Database connect to root container
 
 And how do we connect to a specific PDB though?
@@ -142,7 +150,8 @@ And how do we connect to a specific PDB though?
 You are connecting to root container by using sqlplus testtest/password where the user doesn't exist.
 Instead, you can use EZConnect or you can create a TNS name to connect to the PDB.
 ```
-Ok then learn something about ezconnect syntax
+
+Ok then learn something about ezconnect syntax\
 sqlplus username/password@hostname:port/pdbname
 
 ```powershell
@@ -162,11 +171,13 @@ Version 18.4.0.0.0
 SQL>
 ```
 Try to create user
+
 ```powershell
 SQL> create user test identified by test;
 
 User created.
 ```
+
 Perfect
 
 But how do we tell django using this kind of syntax though, it keep throwing errors to my face
@@ -174,9 +185,11 @@ But how do we tell django using this kind of syntax though, it keep throwing err
 ```word
 The HOST and PORT keys need to be left out of the dictionary - else Django will try connecting with the complete "NAME" as an SID.
 ```
+
 Ok then
-Let try to login with service name instead
+Let try to login with service name instead\
 Try to login with service name in sqlplus
+
 ```powershell
 PS D:\Workplace\Backend\mysite> sqlplus -L "django/django@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=XEPDB1)))"
 
@@ -207,6 +220,7 @@ DATABASES = {
 
 <h2 id='Solution'>Solution</h2>
 * Connect to sqlplus as sys
+
 ```powershell
 PS D:\Workplace\Backend\mysite> sqlplus "sys AS SYSDBA"
 
@@ -221,7 +235,9 @@ Connected to:
 Oracle Database 18c Express Edition Release 18.0.0.0.0 - Production
 Version 18.4.0.0.0
 ```
+
 * Create PDB account
+
 ```powershell
 SQL> alter session set container = XEPDB1;
 
@@ -235,10 +251,13 @@ SQL> grant all privileges to django;
 
 Grant succeeded.
 ```
+
 * Create/Edit Database connection with that user
+
 ![databse-connection](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/p9gnrcjs3e4jti9rf76v.png)
 _Remember to change service name to the container we have used above **If you're using Oracle 12, container will be ORCLPDB**, hit the connect button_
 * Open file yoursite/yoursite/settings.py
+
 ```powershell
 DATABASES = {
     'default': {
@@ -265,15 +284,14 @@ System check identified no issues (0 silenced).
 F
 ======================================================================
 FAIL: test_was_published_recently_with_future_question (polls.tests.QuestionModelTests)
-----------------------------------------------------------------------
+  ----------------------------------------------------------------------
 Traceback (most recent call last):
   File "D:\Workplace\Backend\mysite\polls\tests.py", line 12, in test_was_published_recently_with_future_question
     self.assertIs(future_question.was_published_recently(), False)
 AssertionError: True is not False
 
-----------------------------------------------------------------------
+  ----------------------------------------------------------------------
 Ran 1 test in 0.006s
-
 FAILED (failures=1)
 Destroying test database for alias 'default'...
 Destroying test user...
