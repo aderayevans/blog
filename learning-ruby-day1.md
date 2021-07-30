@@ -261,6 +261,12 @@ How to do some basic loop and function
 
 Learned some common methods of array and a dictionary-like data structures called hash
 
+I'd like to thank HackerRank for giving me a chance to acknowledge and be interesting in this cool language
+
+If guys found Ruby is fascinating, please come to the link below and solve some Ruby challenges with me 
+
+<https://www.hackerrank.com/domains/ruby>
+
 If you have any question or suggestion, please let me know at the comment section below.
 
 OK I'm going to wrap this up here
