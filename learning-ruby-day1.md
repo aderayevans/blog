@@ -25,7 +25,8 @@ PS D:\Workplace> ruby hello-world.rb
 Hello World!!!
 ```
 
-> print "\n" equals putsssss
+> print "\n" equals puts
+
 ```ruby
 print "First line "
 print "still first line\n"
