@@ -48,7 +48,9 @@ print else
 main
 ```
 ## Object Method
+
 > check whether the num is even or odd
+
 ```ruby
 num = 2
 print num.even?
@@ -58,7 +60,9 @@ print num.even?
 true
 ```
 ## Object Method Parameters
+
 >print the quotient of num and 2
+
 ```ruby
 num = 2
 num.div 2
@@ -69,7 +73,9 @@ print num
 1
 ```
 ## First loop
+
 >print the value of each member in array to the power of 2
+
 ```ruby
 array = [1, 2, 3, 4, 5]
 array.each do |num|
@@ -85,7 +91,9 @@ end
 25
 ```
 ## First function
+
 >print ASCII chars of any decimal number in array if number is not odd
+
 ```ruby
 def print_char(array)
     array.each do |num|
@@ -103,42 +111,60 @@ F
 ```
 ## Array
 **Working on single element**
+
 > Delete last element
+
 ```ruby
 arr.pop
 ```
+
 > Delete first element
+
 ```ruby
 arr.shift
 ```
+
 > Delete element at position a given position
+
 ```ruby
 arr.delete_at(2)
 ```
 **Working on multiple elements**
+
 > Delete all occurrences of a given element
+
 ```ruby
 arr.delete(5)
 ```
+
 > Delete elements if
+
 ```ruby
 arr.delete_if {|a| a < 2}
 ```
+
 > Delete elements unless
+
 ```ruby
 arr.keep_if {|a| a < 4}  
 ```
 **Create subarray**
+
 > Select elements from array to subarray
+
 ```ruby
 arr2 = arr.select {|a| a > 2}
 print arr2
 ```
+
 > Reject elements from array to subarray
+
 ```ruby
 arr2 = arr.reject {|a| a > 2}
 ```
+
 > Reject elements from array till returns false for the first time
+
 ```ruby
 arr2 = arr.drop_while {|a| a > 1}
 ```
