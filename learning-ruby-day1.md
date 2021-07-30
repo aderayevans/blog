@@ -15,6 +15,8 @@ Ok let's do it
 
 <h2 id='Content'></h2>
 
+<hr>
+
 ## Create my first program in ruby
 ```ruby
 print "Hello World!!!"
@@ -39,6 +41,8 @@ First line still first line
 Second line
 Thirld line
 ```
+<hr>
+
 ## Everything is object
 ```ruby
 print else
@@ -47,7 +51,9 @@ print else
 ```powershell
 main
 ```
-## Object Method
+<hr>
+
+## Call Object Method
 
 > check whether the num is even or odd
 
@@ -59,7 +65,9 @@ print num.even?
 ```powershell
 true
 ```
-## Object Method Parameters
+<hr>
+
+## Call Object Method Parameters
 
 >print the quotient of num and 2
 
@@ -72,6 +80,8 @@ print num
 ```powershell
 1
 ```
+<hr>
+
 ## First loop
 
 >print the value of each member in array to the power of 2
@@ -90,6 +100,8 @@ end
 16
 25
 ```
+<hr>
+
 ## First function
 
 >print ASCII chars of any decimal number in array if number is not odd
@@ -109,6 +121,8 @@ B
 D
 F
 ```
+<hr>
+
 ## Array
 **Working on single element**
 
@@ -168,6 +182,8 @@ arr2 = arr.reject {|a| a > 2}
 ```ruby
 arr2 = arr.drop_while {|a| a > 1}
 ```
+<hr>
+
 ## Hash, a dictionary-like data structures
 ```ruby
 # initialize and set default value
@@ -209,6 +225,8 @@ hash.keep_if {|key, value| key.is_a? Integer}
 # or 
 hash.delete_if {|key, value|key.even? }
 ```
+<hr>
+
 ## Infinite Loop
 ```ruby
 i = 0
@@ -234,12 +252,16 @@ end
 
 <h2 id='Conclusion'></h2>
 
+<hr>
+
 ## Conclusion
 We have learned how to print output
 
 How to do some basic loop and function
 
 Learned some common methods of array and a dictionary-like data structures called hash
+
+If you have any question or suggestion, please let me know at the comment section below.
 
 OK I'm going to wrap this up here
 
