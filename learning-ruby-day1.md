@@ -188,9 +188,9 @@ arr2 = arr.drop_while {|a| a > 1}
 ```ruby
 # initialize and set default value
 empty_hash = Hash.new 
-empty_hash.default = 0
+empty_hash.default = 1
 # or
-default_hash = Hash.new(0)
+default_hash = Hash.new(1)
 ```
 **Set value**
 ```ruby
