@@ -243,6 +243,7 @@ In this part, we're going to talk a little more about string in Ruby
 String elements can be called in multiple ways
 
 * Each char
+
 ```ruby
 str.each_char {|x| p x}
 ```
@@ -260,6 +261,7 @@ str.each_char {|x| p x}
 "?"
 ```
 * Each byte
+
 ```ruby
 str.each_byte {|x| p x}
 ```
@@ -278,6 +280,7 @@ str.each_byte {|x| p x}
 63
 ```
 * Each line
+
 ```ruby
 "hello\nworld".each_line {|s| p s}
 ```
@@ -334,6 +337,7 @@ p str.strip
 _Delete the leading and trailing `\t\n\r` and whitespaces_
 
 * Append str
+
 ```ruby
 str = ""
 str += "Hello"
