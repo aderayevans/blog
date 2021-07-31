@@ -348,6 +348,7 @@ str << "Ruby is " << "pretty"
 str << 3.14.to_s
 ```
 * Add to the beginning
+
 ```ruby
 str = "Gimme your wallet"
 p str
