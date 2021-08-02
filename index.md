@@ -5,3 +5,5 @@
 [Learning ruby - day 1](learning-ruby-day1.md)
 
 [Learning ruby - day 2](learning-ruby-day2.md)
+
+[Learning ruby - day 3](learning-ruby-day3.md)
