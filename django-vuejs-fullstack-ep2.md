@@ -85,6 +85,79 @@ class mShark(models.Model):
 <h2 id="vuejs"><LightPink>Vue.js side</LightPink></h2>
 <hr>
 
+`frontend/src/router/index.js` or `.ts`
+```ts
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Shark from "../components/Shark.vue";
 
+Vue.use(VueRouter);
 
+const routes = [
+  {
+    path: "/shark",
+    name: "Shark",
+    component: Shark,
+  },
+];
+
+const router = new VueRouter({
+  mode: "history",
+  base: process.env.BASE_URL,
+  routes,
+});
+
+export default router;
+
+```
+
+* Create new file `frontend/src/components/Share.vue`
+```ts
+<template>
+  <div>
+    <p>{{ msg }}</p>
+  </div>
+</template>
+
+<script>
+import axios from "axios";
+
+export default {
+  name: "vShark",
+  data() {
+    return {
+      msg: "",
+    };
+  },
+  methods: {
+    getResponse() {
+      const path = "http://127.0.0.1:8000/shark/";
+      axios
+        .get(path)
+        .then((res) => {
+          console.log(res.data);
+          this.msg = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
+  created() {
+    this.getResponse();
+  },
+};
+</script>
+
+```
+
+Now everytime we go to path `http://localhost:8080/shark` which is frontend side
+
+Vue will ask the server at `http://127.0.0.1:8000/shark/` and get the response
+Then print all the messages in the frontend web page
+
+![first_result](django_vuejs_first_result.png)
+
+## Additional commands:
+* Run `npm run lint --fix` to fix linting errors (recommend setting `Prettier` extension when using VSCode)
 ![npm run lint --fix](npm_run_lint.png)
