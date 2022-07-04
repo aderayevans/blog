@@ -112,6 +112,7 @@ export default router;
 ```
 
 * Create new file `frontend/src/components/Shark.vue`
+
 ```ts
 <template>
   <div>
