@@ -21,7 +21,7 @@
 <hr>
 - Create a new Django project
 
-`python manage.py startproject {project}`
+`django-admin startproject {project}`
 
 - Start the server with
 
