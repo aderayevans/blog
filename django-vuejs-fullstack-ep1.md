@@ -21,7 +21,7 @@
 <hr>
 - Create a new Django project
 
-`django-admin startproject {project}`
+`django-admin startproject {project} .`
 
 - Start the server with
 
